@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { fetchMovies } from './movieService';
 
 describe('Movie Service API Tests', () => {
