@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useFavorites } from '../context/FavoritesContext';
 import PropTypes from 'prop-types';
 import './Navbar.css';
 
 export const Navbar = ({ siteName }) => {
   const navLinks = ['Home', 'Movies', 'TV Shows', 'My List'];
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { favoritesCount } = useFavorites();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -29,8 +31,15 @@ export const Navbar = ({ siteName }) => {
 
         <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
           {navLinks.map((link, index) => (
-            <li key={link} className="navbar-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <li 
+              key={link} 
+              className="navbar-link" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               {link}
+              {link === 'My List' && favoritesCount > 0 && (
+                <span className="favorites-badge">{favoritesCount}</span>
+              )}
             </li>
           ))}
         </ul>
