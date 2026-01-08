@@ -13,7 +13,7 @@ export const MovieCard = ({ movie }) => {
         <div className="movie-card-overlay">
           <div className="movie-overlay-content">
             <h3>{title}</h3>
-            <p className="movie-runtime">{runtime || 'Runtime not available'}</p>
+            <p className="movie-runtime">{runtime ?? 'Runtime not available'}</p>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@ export const MovieCard = ({ movie }) => {
         <h3 className="movie-title">{title}</h3>
         <div className="movie-details">
           <span className="movie-year">📅 {year}</span>
-          <span className="movie-duration">⏱️ {runtime || 'N/A'}</span>
+          <span className="movie-duration">⏱️ {runtime ?? 'N/A'}</span>
         </div>
       </div>
     </div>
