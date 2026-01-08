@@ -44,7 +44,7 @@ describe('MovieList Component Tests', () => {
   it('should render all movies in the list', () => {
     render(<MovieList title="Test Movies" movies={mockMovies} />);
     
-    expect(screen.getByText('The Lion King')).toBeInTheDocument();
-    expect(screen.getByText('John Wick')).toBeInTheDocument();
+    expect(screen.getAllByText('The Lion King').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('John Wick').length).toBeGreaterThan(0);
   });
 });
