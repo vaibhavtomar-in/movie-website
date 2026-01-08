@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { getImageUrl } from '../services/movieService';
 import './MovieCard.css';
 
-const MovieCard = ({ movie }) => {
+export const MovieCard = ({ movie }) => {
   const { Title, Year, Runtime, Poster } = movie;
   const imageUrl = getImageUrl(Poster);
 
@@ -36,5 +36,3 @@ MovieCard.propTypes = {
     Poster: PropTypes.string,
   }).isRequired,
 };
-
-export default MovieCard;

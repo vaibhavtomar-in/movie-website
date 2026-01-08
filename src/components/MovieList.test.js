@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import MovieList from './MovieList';
+import { MovieList } from './MovieList';
 
 describe('MovieList Component Tests', () => {
   const mockMovies = [

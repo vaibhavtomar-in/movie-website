@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Navbar.css';
 
-const Navbar = ({ siteName }) => {
+export const Navbar = ({ siteName }) => {
   const navLinks = ['Home', 'Movies', 'TV Shows', 'My List'];
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -50,5 +50,3 @@ Navbar.propTypes = {
 Navbar.defaultProps = {
   siteName: 'MovieHub',
 };
-
-export default Navbar;

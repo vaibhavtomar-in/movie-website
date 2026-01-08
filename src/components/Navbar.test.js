@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Navbar from './Navbar';
+import { Navbar } from './Navbar';
 
 describe('Navbar Component Tests', () => {
   

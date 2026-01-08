@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import MovieCard from './MovieCard';
+import { MovieCard } from './MovieCard';
 import './MovieList.css';
 
-const MovieList = ({ title, movies, loading, error }) => {
+export const MovieList = ({ title, movies, loading, error }) => {
   if (loading) {
     return (
       <div className="movie-list-section">
@@ -54,5 +54,3 @@ MovieList.defaultProps = {
   loading: false,
   error: null,
 };
-
-export default MovieList;

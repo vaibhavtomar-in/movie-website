@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import MovieList from './components/MovieList';
+import { Navbar } from './components/Navbar';
+import { MovieList } from './components/MovieList';
 import { fetchMovies } from './services/movieService';
 import './App.css';
 
-function App() {
+export const App = () => {
   const [allMovies, setAllMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -42,5 +42,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
