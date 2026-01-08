@@ -18,7 +18,7 @@ export const Navbar = ({ siteName }) => {
         </div>
 
         <button 
-          className={`burger-menu ${isMobileMenuOpen ? 'open' : ''}`}
+          className={`burger-menu ${isMobileMenuOpen ? 'menu-open-state' : ''}`}
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >

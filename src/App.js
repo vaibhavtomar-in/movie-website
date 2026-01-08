@@ -10,10 +10,10 @@ export const App = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    loadMovies();
+    fetchMoviesData();
   }, []);
 
-  const loadMovies = async () => {
+  const fetchMoviesData = async () => {
     try {
       setLoading(true);
       setError(null);
