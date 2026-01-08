@@ -3,10 +3,7 @@ import { getImageUrl } from '../services/movieService';
 import './MovieCard.css';
 
 const MovieCard = ({ movie }) => {
-  // Destructure movie object
   const { Title, Year, Runtime, Poster } = movie;
-  
-  // Get image URL with fallback
   const imageUrl = getImageUrl(Poster);
 
   return (
@@ -31,7 +28,6 @@ const MovieCard = ({ movie }) => {
   );
 };
 
-// PropTypes for type checking
 MovieCard.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,

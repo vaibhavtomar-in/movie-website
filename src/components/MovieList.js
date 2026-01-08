@@ -3,7 +3,6 @@ import MovieCard from './MovieCard';
 import './MovieList.css';
 
 const MovieList = ({ title, movies, loading, error }) => {
-  // Loading state
   if (loading) {
     return (
       <div className="movie-list-section">
@@ -13,7 +12,6 @@ const MovieList = ({ title, movies, loading, error }) => {
     );
   }
 
-  // Error state
   if (error) {
     return (
       <div className="movie-list-section">
@@ -23,7 +21,6 @@ const MovieList = ({ title, movies, loading, error }) => {
     );
   }
 
-  // Empty state
   if (!movies || movies.length === 0) {
     return (
       <div className="movie-list-section">
@@ -33,7 +30,6 @@ const MovieList = ({ title, movies, loading, error }) => {
     );
   }
 
-  // Success state - render movie grid
   return (
     <div className="movie-list-section">
       <h2 className="movie-list-title">{title}</h2>
@@ -46,7 +42,6 @@ const MovieList = ({ title, movies, loading, error }) => {
   );
 };
 
-// PropTypes for type checking
 MovieList.propTypes = {
   title: PropTypes.string.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object),
@@ -54,7 +49,6 @@ MovieList.propTypes = {
   error: PropTypes.string,
 };
 
-// Default props
 MovieList.defaultProps = {
   movies: [],
   loading: false,
