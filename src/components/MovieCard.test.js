@@ -1,8 +1,7 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
-import MovieCard from './MovieCard';
+import { MovieCard } from './MovieCard';
 
-describe('MovieCard Component Tests', () => {
+describe('MovieCard', () => {
   const mockMovie = {
     Title: 'The Lion King',
     Year: '2019',

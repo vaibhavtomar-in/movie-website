@@ -1,38 +1,33 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { getImageUrl } from '../services/movieService';
 import './MovieCard.css';
 
-const MovieCard = ({ movie }) => {
-  // Destructure movie object
-  const { Title, Year, Runtime, Poster } = movie;
-  
-  // Get image URL with fallback
-  const imageUrl = getImageUrl(Poster);
+export const MovieCard = ({ movie }) => {
+  const { Title: title, Year: year, Runtime: runtime, Poster: poster } = movie;
+  const imageUrl = getImageUrl(poster);
 
   return (
     <div className="movie-card">
       <div className="movie-card-image">
-        <img src={imageUrl} alt={Title} />
+        <img src={imageUrl} alt={title} />
         <div className="movie-card-overlay">
           <div className="movie-overlay-content">
-            <h3>{Title}</h3>
-            <p className="movie-runtime">{Runtime || 'Runtime not available'}</p>
+            <h3>{title}</h3>
+            <p className="movie-runtime">{runtime ?? 'Runtime not available'}</p>
           </div>
         </div>
       </div>
       <div className="movie-card-info">
-        <h3 className="movie-title">{Title}</h3>
+        <h3 className="movie-title">{title}</h3>
         <div className="movie-details">
-          <span className="movie-year">📅 {Year}</span>
-          <span className="movie-duration">⏱️ {Runtime || 'N/A'}</span>
+          <span className="movie-year">📅 {year}</span>
+          <span className="movie-duration">⏱️ {runtime ?? 'N/A'}</span>
         </div>
       </div>
     </div>
   );
 };
 
-// PropTypes for type checking
 MovieCard.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
@@ -41,5 +36,3 @@ MovieCard.propTypes = {
     Poster: PropTypes.string,
   }).isRequired,
 };
-
-export default MovieCard;
