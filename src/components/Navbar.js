@@ -29,7 +29,7 @@ export const Navbar = ({ siteName }) => {
 
         <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
           {navLinks.map((link, index) => (
-            <li key={index} className="navbar-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <li key={link} className="navbar-link" onClick={() => setIsMobileMenuOpen(false)}>
               {link}
             </li>
           ))}
