@@ -74,6 +74,26 @@
   white-space: nowrap;
 }
 
+.favorites-badge {
+  background: #e50914;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-left: 8px;
+  font-weight: bold;
+  min-width: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+.navbar-link {
+  /* Add to existing styles */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .navbar-link:hover {
   color: #e50914;
 }
