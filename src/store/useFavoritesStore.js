@@ -24,6 +24,7 @@ export const useFavoritesStore = create((set, get) => ({
 
   // Actions
   addFavorite: (movie) => set((state) => {
+    console.log('Adding favorite:', movie);
     const exists = state.favorites.find((fav) => fav.Title === movie.Title);
     
     if (exists) {
@@ -36,6 +37,7 @@ export const useFavoritesStore = create((set, get) => ({
   }),
 
   removeFavorite: (movieTitle) => set((state) => {
+    console.log('Removing favorite:', movieTitle);
     const newFavorites = state.favorites.filter((fav) => fav.Title !== movieTitle);
     saveFavoritesToStorage(newFavorites);
     return { favorites: newFavorites };
