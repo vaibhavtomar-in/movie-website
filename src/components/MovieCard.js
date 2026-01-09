@@ -1,14 +1,36 @@
 import PropTypes from 'prop-types';
 import { getImageUrl } from '../services/movieService';
+import { useFavoritesStore } from '../store/useFavoritesStore';
 import './MovieCard.css';
 
 export const MovieCard = ({ movie }) => {
   const { Title: title, Year: year, Runtime: runtime, Poster: poster } = movie;
+
+  const addFavorite = useFavoritesStore((state) => state.addFavorite);
+  const removeFavorite = useFavoritesStore((state) => state.removeFavorite);
+  const isMovieFavorite = useFavoritesStore((state) => state.isFavorite(title));
+
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation();
+    if (isMovieFavorite) {
+      removeFavorite(title);
+    } else {
+      addFavorite(movie);
+    }
+  };
+
   const imageUrl = getImageUrl(poster);
 
   return (
     <div className="movie-card">
       <div className="movie-card-image">
+        <button 
+          className="favorite-button"
+          onClick={handleFavoriteClick}
+          aria-label={isMovieFavorite ? "Remove from favorites" : "Add to favorites"}
+        >
+          {isMovieFavorite ? '❤️' : '🤍'}
+        </button>
         <img src={imageUrl} alt={title} />
         <div className="movie-card-overlay">
           <div className="movie-overlay-content">
