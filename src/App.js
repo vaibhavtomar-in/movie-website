@@ -10,22 +10,28 @@ export const App = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchMoviesData();
-  }, []);
+    const abortController = new AbortController();
+    const loadMovies = async () => {
+      try{
+        const movieApiResponse = await fetchMovies(abortController.signal);
+        if (movieApiResponse){
+          setAllMovies(movieApiResponse);
+          setLoading(false);
+        }
+      }catch (error) {
+        setError(error.message);
+      }finally{
+        setLoading(false);
+      }
+    };
 
-  const fetchMoviesData = async () => {
-    try {
-      setLoading(true);
-      setError(null);
+    loadMovies();
 
-      const movies = await fetchMovies();
-      setAllMovies(movies);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+    return () => {
+    abortController.abort(); // Cleanup: cancel request on unmount
+    };
+
+  },[])
 
   return (
     <div className="App">
